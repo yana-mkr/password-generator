@@ -28,34 +28,40 @@ if (specialChar) {
   specialChar = ["~!@#$%^&*()_-+={}[]|<>.?/;:"];
 }
 
-console.log({
-pwLength,
- lowerCase,
- upperCase,
- numbers,
- specialChar
-})
+// console.log({
+// pwLength,
+//  lowerCase,
+//  upperCase,
+//  numbers,
+//  specialChar
+// })
 
+// empty array to store the passwords that's being created
 var emptyArray = [];
 
+// for lower case true
 if (lowerCase) {
   emptyArray += lowerCase
 }
 
+// for upper case true
 if (upperCase) {
   emptyArray += upperCase
 }
 
+// for numbers true
 if (numbers) {
  emptyArray += numbers
 }
 
+// for special characters true
 if (specialChar) {
   emptyArray += specialChar
 }
 
 //console.log(emptyArray);
 
+// empty variable
 var newPassword = ""
 
 for(let i = 0; i < pwLength; i += 1) {
@@ -75,7 +81,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  
 }
 
 // Add event listener to generate button
