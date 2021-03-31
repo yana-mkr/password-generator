@@ -19,14 +19,37 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-var pwLength = window.prompt('How long should your password be? Enter a number between 8 and 128.');
+var pwLength = window.prompt("How long should your password be? Enter a number between 8 and 128.");
+if (pwLength < 8 || pwLength > 128) {
+generatePassword();
+  return;
+}
 
-if (pwLength >= 8 && pwLength <= 128) {
-  return("Your password will be " + pwLength + " characters long.");
-} else { 
-  return("Please enter a number between 8 and 128.");
+var lowerCase = window.confirm("Should your password include lower case letters?");
+if (lowerCase) {
+  lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u",
+"v", "w", "x", "y", "z"];
+}
+
+var upperCase = window.confirm("Should your password include upper case letters?");
+if (upperCase) {
+  upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+"V", "W", "X", "Y", "Z"];
+}
+
+var numbers = window.confirm("Should your password include numbers?");
+if (numbers) {
+  numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+}
+
+var specialChar = window.confirm ("Should your password include special characters?");
+if (specialChar) {
+  specialChar = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "}", "[", "]", "|",
+"<", ">", ",", ".", "?", "/", ";", ":"];
 }
 }
+
+
 
 // Write password to the #password input
 function writePassword() {
