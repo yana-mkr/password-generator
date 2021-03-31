@@ -1,20 +1,3 @@
-// Assignment code here
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -45,11 +28,50 @@ if (numbers) {
 var specialChar = window.confirm ("Should your password include special characters?");
 if (specialChar) {
   specialChar = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "}", "[", "]", "|",
-"<", ">", ",", ".", "?", "/", ";", ":"];
-}
+"<", ">", ".", "?", "/", ";", ":"];
 }
 
+//console.log({
+  //pwLength,
+ // lowerCase,
+ // upperCase,
+ // numbers,
+ // specialChar
+//})
 
+var emptyArray = [];
+
+if (lowerCase) {
+  emptyArray += lowerCase
+}
+
+if (upperCase) {
+  emptyArray += upperCase
+}
+
+if (numbers) {
+ emptyArray += numbers
+}
+
+if (specialChar) {
+  emptyArray += specialChar
+}
+
+//console.log(emptyArray);
+
+var newPassword = ""
+
+for(let i = 0; i < pwLength; i += 1) {
+  // reference from Stack Overflow
+  // var item = items[Math.floor(Math.random() * items.length)];
+
+  newPassword += emptyArray[Math.floor(Math.random() * emptyArray.length)];
+}
+
+//console.log(newPassword)
+return newPassword;
+
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -57,7 +79,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+  
 }
 
 // Add event listener to generate button
